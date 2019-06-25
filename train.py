@@ -175,8 +175,8 @@ decoder_outputs = decoder_dense(decoder_outputs)
 model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
 #early stopping on val perplexity
-#from keras.callbacks import EarlyStopping
-#callback = EarlyStopping(monitor='val_ppx', patience=2)
+from keras.callbacks import EarlyStopping
+earlystopping = EarlyStopping(monitor='val_ppx', patience=2)
 
 # perplexity
 from keras.losses import categorical_crossentropy
@@ -209,7 +209,7 @@ test_num_batches = len(X_test) // BATCH_SIZE
 checkpoint = ModelCheckpoint(filepath=WEIGHT_FILE_PATH, save_best_only=True)
 model.fit_generator(generator=train_gen, steps_per_epoch=train_num_batches,
                     epochs=NUM_EPOCHS,
-                    verbose=1, validation_data=test_gen, validation_steps=test_num_batches, callbacks=[checkpoint])
+                    verbose=1, validation_data=test_gen, validation_steps=test_num_batches, callbacks=[checkpoint, earlystopping])
 
 encoder_model = Model(encoder_inputs, encoder_states)
 encoder_model.save('model/encoder-weights.h5')

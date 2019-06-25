@@ -11,7 +11,6 @@ import nltk
 
 HIDDEN_UNITS = 64
 
-
 class chatbot(object):
     model = None
     encoder_model = None
@@ -26,11 +25,11 @@ class chatbot(object):
     num_decoder_tokens = None
 
     def __init__(self):
-        self.input_word2idx = np.load('model/word-input-word2idx.npy').item()
-        self.input_idx2word = np.load('model/word-input-idx2word.npy').item()
-        self.target_word2idx = np.load('model/word-target-word2idx.npy').item()
-        self.target_idx2word = np.load('model/word-target-idx2word.npy').item()
-        context = np.load('model/word-context.npy').item()
+        self.input_word2idx = np.load('model/word-input-word2idx.npy', allow_pickle=True).item()
+        self.input_idx2word = np.load('model/word-input-idx2word.npy', allow_pickle=True).item()
+        self.target_word2idx = np.load('model/word-target-word2idx.npy', allow_pickle=True).item()
+        self.target_idx2word = np.load('model/word-target-idx2word.npy', allow_pickle=True).item()
+        context = np.load('model/word-context.npy', allow_pickle=True).item()
         self.max_encoder_seq_length = context['encoder_max_seq_length']
         self.max_decoder_seq_length = context['decoder_max_seq_length']
         self.num_encoder_tokens = context['num_encoder_tokens']
@@ -107,9 +106,6 @@ class chatbot(object):
         print(self.reply("why"))
         print(self.reply("humans and robots should work together to make the world a better place. what do you think"))
         
-        
-
-
 def main():
     model = chatbot()
     model.test_run()
