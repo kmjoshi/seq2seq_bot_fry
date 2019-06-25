@@ -1,7 +1,7 @@
 ## Modified and trained on [Fry & Laurie transcript](https://abitoffryandlaurie.co.uk/)
 
-This fork: [kmjoshi.github.io/seq2seq_bot_fry/](kmjoshi.github.io/seq2seq_bot_fry/)  
-Original: [machine-learning-tokyo.github.io/seq2seq_bot/](machine-learning-tokyo.github.io/seq2seq_bot/)
+This fork: [kmjoshi.github.io/seq2seq_bot_fry/](https://kmjoshi.github.io/seq2seq_bot_fry/)  
+Original: [machine-learning-tokyo.github.io/seq2seq_bot/](https://machine-learning-tokyo.github.io/seq2seq_bot/)
 
 Sentence-output chatbot. TODO: train a word generation chatbot
 
