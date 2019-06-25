@@ -44,7 +44,7 @@ dialogues = []
 for s in df.sketch_text:
     s = eval(s)
     for d in s:
-        dialogues += [d['text'].strip('\n').strip('\t').strip('  ')]
+        dialogues += [d['text'].strip('*\n*').strip('*\t*').strip('  ')]
 
 questions = dialogues[:-1]
 answers = dialogues[1:]
