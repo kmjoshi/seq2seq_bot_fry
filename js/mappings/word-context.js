@@ -1,6 +1,6 @@
 export default {
-  "num_encoder_tokens": 1149,
-  "num_decoder_tokens": 623,
-  "encoder_max_seq_length": 17,
+  "num_encoder_tokens": 2002,
+  "num_decoder_tokens": 2001,
+  "encoder_max_seq_length": 24,
   "decoder_max_seq_length": 26
 }

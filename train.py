@@ -38,12 +38,20 @@ input_texts = []
 target_texts = []
 
 # loading data
-with open('data/Q1.csv', 'r', encoding='utf8') as f:
-    questions = f.read().split('\n')
-    
-with open('data/Q2.csv', 'r', encoding='utf8') as f:
-    answers = f.read().split('\n')
+import pandas as pd
+df = pd.read_csv('data/fry-laurie-sketches.csv')
+dialogues = []
+for s in df.sketch_text:
+    s = eval(s)
+    for d in s:
+        dialogues += [d['text'].strip('\n').strip('\t').strip('  ')]
 
+questions = dialogues[:-1]
+answers = dialogues[1:]
+# with open('data/Q1.csv', 'r', encoding='utf8') as f:
+#     questions = f.read().split('\n')  
+# with open('data/Q2.csv', 'r', encoding='utf8') as f:
+#     answers = f.read().split('\n')
 
 prev_words = []
 for line in questions:
